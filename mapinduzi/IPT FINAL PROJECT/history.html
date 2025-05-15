@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .history-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="history-container">
+        <h2>Customers History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Action</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const historyTableBody = document.getElementById('historyTableBody');
+            const history = JSON.parse(localStorage.getItem('history')) || [];
+            history.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.timestamp}</td>
+                    <td>${item.action}</td>
+            
+                    
+                    <td>
+                        <button class="edit-btn" onclick="editAction(${index})">Edit</button>
+                        <button class="delete-btn" onclick="deleteAction(${index})">Delete</button>
+                    </td>
+                `;
+                historyTableBody.appendChild(row);
+            });
+        });
+
+        function editAction(index) {
+            const history = JSON.parse(localStorage.getItem('history')) || [];
+            const item = history[index];
+            const newAction = prompt("Edit Action:", item.action);
+            const newUsername = prompt("Edit Username:", item.username);
+            const newEmail = prompt("Edit Email:", item.email);
+            const newLocation = prompt("Edit Location:", item.location);
+            const newPhone = prompt("Edit Phone:", item.phone);
+            const newService = prompt("Edit Service:", item.service);
+            if (newAction && newUsername && newEmail && newLocation && newPhone && newService) {
+                history[index] = {
+                    ...item,
+                    action: newAction,
+                    username: newUsername,
+                    email: newEmail,
+                    location: newLocation,
+                    phone: newPhone,
+                    service: newService,
+                    timestamp: new Date().toLocaleString()
+                };
+                localStorage.setItem('history', JSON.stringify(history));
+                location.reload();
+            }
+        }
+
+        function deleteAction(index) {
+            const history = JSON.parse(localStorage.getItem('history')) || [];
+            history.splice(index, 1);
+            localStorage.setItem('history', JSON.stringify(history));
+            location.reload();
+        }
+    </script>
+</body>
+</html>

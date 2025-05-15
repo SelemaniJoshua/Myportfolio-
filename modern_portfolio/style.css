@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f8f8;
+  color: #222;
+}
+header {
+  background-color: #3e1d96;
+  padding: 15px;
+  color: white;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+.btn {
+  background-color: #8c52ff;
+  color: white;
+  padding: 10px 5px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  background: linear-gradient(to right, #3e1d96, #5c2fda);
+  color: white;
+}
+.hero-img img {
+  border-radius: 50%;
+  width: 200px;
+}
+.about, .projects, .contact, .survey {
+  padding: 40px;
+}
+.about h2, .projects h2, .contact h2, .survey h2 {
+  margin-bottom: 15px;
+}
+
+.about h2 {
+  margin-bottom: 15px;
+  position: absolute;
+  left: 50%;
+}
+.hoby {
+ margin-bottom: 0%; 
+ position: absolute;
+ left: 50%;
+ top: 15%;
+}
+
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+form button {
+  background-color: #5c2fda;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+}
+footer {
+  position: absolute;
+  width: 1370px;
+  bottom: 0%;
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(124, 124, 248);
+}
+.badge {
+  margin-left: 15px;
+  padding: 6px 12px;
+  background: #32cd32;
+  border-radius: 20px;
+  color: white;
+}
+
+.skills {
+  padding: 50px;
+}
+.skill-bars {
+  display: grid;
+  gap: 15px;
+}
+.skill {
+  margin-bottom: 10px;
+}
+.skill span {
+  display: block;
+  margin-bottom: 5px;
+}
+.bar {
+  height: 10px;
+  background: #333;
+  border-radius: 5px;
+}
+.bar div {
+  height: 95%;
+  background: orange;
+  border-radius: 5px;
+}

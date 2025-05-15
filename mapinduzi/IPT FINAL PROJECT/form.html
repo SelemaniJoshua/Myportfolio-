@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Actions Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Actions Form</h1>
+    <form id="actionForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="text" id="location" placeholder="Location" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="paymentMethod" placeholder="Payment Method" required>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('actionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const location = document.getElementById('location').value;
+            const phone = document.getElementById('phone').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            const action = {
+                timestamp: new Date().toLocaleString(),
+                username: username,
+                email: email,
+                address: address,
+                location: location,
+                phone: phone,
+                paymentMethod: paymentMethod,
+                actionType: 'Submit'
+            };
+
+            saveActionToLocalStorage(action);
+            document.getElementById('actionForm').reset();
+            window.location.href = 'table.html';
+        });
+
+        function saveActionToLocalStorage(action) {
+            let actions = JSON.parse(localStorage.getItem('actions')) || [];
+            actions.push(action);
+            localStorage.setItem('actions', JSON.stringify(actions));
+        }
+    </script>
+</body>
+</html>

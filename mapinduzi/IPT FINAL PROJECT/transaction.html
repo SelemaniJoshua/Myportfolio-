@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Instructions</title>
+    <style>
+        .instructions {
+            display: none;
+            margin-top: 20px;
+        }
+        .mshua{
+            border: 2px solid;
+        }
+        .juma{
+            border: 1px solid;
+        }
+        h2{
+            text-align: center;
+            font-size: 40px;
+            padding: 8px;
+        }
+        .button{
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 22px;
+            text-align: center;
+            padding:1px;
+            margin-right: 10px;
+        }
+        .button:hover{
+            color: rgb(228, 243, 243);
+        }
+        .confirm{
+            border-radius: 10px;
+        }
+        .confirm:hover{
+            color: rgb(228, 243, 243);
+        }
+        .instructions.active {
+            display: block;
+            overflow: auto;
+        }
+        .network-image {
+            width: 100px;
+            height: auto;
+            margin-left: 50px;
+            vertical-align: middle;
+        }
+
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4036cf;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .custom-alert button {
+            background-color: white;
+            color: #121313;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mshua">
+        <div class="juma">
+            <div class="h2">
+    <h2>Choose Method to Pay</h2>
+            </div>
+            <p style="font-size: 26px; color: blue;">Click here to accomplish your payments....!</p>
+    <form id="paymentForm">
+        <label>
+            <input type="radio" name="paymentMethod" value="tigo" onclick="showInstructions('tigo')" left="0px">
+            <img src="tigo.jpg" alt="Tigo Pesa" class="network-image"> Tigo Pesa
+        </label><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="vodacom" onclick="showInstructions('vodacom')">
+            <img src="mpesa.jpg" alt="Vodacom M-Pesa" class="network-image"> Vodacom M-Pesa
+        </label><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="airtel" onclick="showInstructions('airtel')">
+            <img src="airtel2.jpg" alt="Airtel Money" class="network-image"> Airtel Money
+        </label><br><br>
+        <label>
+            <input type="radio" name="paymentMethod" value="halopesa" onclick="showInstructions('halopesa')">
+            <img src="halo.jpg" alt="HaloPesa" class="network-image"> HaloPesa
+        </label>
+    </form>
+        </div>
+
+    <div id="tigo" class="instructions">
+        <p style="font-size: 23px; color: rgb(33, 55, 247);">Dear costomer please follow the following instructions to pay via TIGO-PESA:</p>
+        <h3>Tigo Pesa: Follow steps to pay</h3>
+        <ol>
+            <li>Dial *150*01#</li>
+            <li>Choose Option 4 --- "Pay Bills"("Lipia Bili")</li>
+            <li>Choose Option 3 --- "Bussiness Number" ("Namba ya Kampuni")</li>
+            <li>Enter Bussiness Number (Weka namba ya Kampuni) --<b> Namba ya Kampuni</b></li>
+            <li>Enter Amount (Ingiza kiasi)</li>
+            <li>Enter your PIN to confirm (Ingiza namba yako siri kuhakiki muamala)</li>
+        </ol>
+    </div>
+
+    <div id="vodacom" class="instructions">
+        <p style="font-size: 23px; color: rgb(33, 55, 247);">Dear costomer please follow the following instructions to pay via M-PESA:</p>
+        <h3>Vodacom M-Pesa: Follow steps to pay</h3>
+        <ol>
+            <li>Dial *150*01#</li>
+            <li>Choose Option 4 --- "Pay Bills"("Lipia Bili")</li>
+            <li>Choose Option 3 --- "Bussiness Number" ("Namba ya Kampuni")</li>
+            <li>Enter Bussiness Number (Weka namba ya Kampuni) --<b> Namba ya Kampuni</b></li>
+            <li>Enter Amount (Ingiza kiasi)</li>
+            <li>Enter Reference Number (Weka Kumbu kumbu namba)</li>
+            <li>Enter your PIN to confirm (Ingiza namba yako siri kuhakiki muamala)</li>
+        </ol>
+    </div>
+
+    <div id="airtel" class="instructions">
+        <p style="font-size: 23px; color: rgb(33, 55, 247);">Dear costomer please follow the following instructions to pay via AIRTEL-MONEY:</p>
+        <h3>Airtel Money: Follow steps to pay</h3>
+        <ol>
+            <li>Dial *150*60#</li>
+            <li>Choose Option 5 --- "Pay Bills"("Lipia Bili")</li>
+            <li>Choose Option 3 --- "Bussiness Number" ("Namba ya Kampuni")</li>
+            <li>Enter Bussiness Number (Weka namba ya Kampuni) --<b> Namba ya Kampuni</b></li>
+            <li>Enter Reference Number (Weka Kumbu kumbu namba)</li>
+            <li>Enter Amount (Ingiza kiasi)</li>
+            <li>Enter your PIN to confirm (Ingiza namba yako siri kuhakiki muamala)</li>
+        </ol>
+            
+    </div>
+
+    <div id="halopesa" class="instructions">
+        <p style="font-size: 23px; color: rgb(33, 55, 247);">Dear costomer please follow the following instructions to pay via HALOPESA:</p>
+        <h3>HaloPesa: Follow steps to pay</h3>
+        <ol>
+            <li>Dial *150*88#</li>
+            <li>Choose Option 4 --- "Pay Bills"("Lipia Bili")</li>
+            <li>Choose Option 1 --- "Pay Merchant" ("Lipa Kwa Mfanyabiashara")</li>
+            <li>Enter Merchant Number (Namba ya Mfanyabiashara) --<b> Namba ya Mfanyabiashara</b></li>
+            <li>Enter Amount to pay (Ingiza kiasi cha kulipa)</li>
+            <li>Enter your PIN to confirm (Ingiza namba yako siri kuhakiki muamala)</li>
+            
+        </ol>
+    </div>
+    <div class="button">
+        <button onclick="showAlert()" style="font-size: 20px; background-color: rgb(96, 110, 236); border-radius: 10px;">CONFIRM</button>
+
+        <div id="customAlert" class="custom-alert">
+            <p>Dear costomer thank you for booking for our service, We are kindly informing you that our team member will contact you after 4hours to deliver for your clothes!</p>
+            <button onclick="closeAlert()">Close</button>
+        </div>
+    
+   <a href="IPT FINAL11.html"><button class="button" style="background-color: rgb(96, 110, 236);" >LOGOUT</button></a>
+    </div>
+    </div>
+
+
+    <script>
+        function showInstructions(paymentMethod) {
+            const instructions = document.querySelectorAll('.instructions');
+            instructions.forEach(instruction => {
+                instruction.classList.remove('active');
+            })
+
+            document.getElementById(paymentMethod).classList.add('active');
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("confirm").addEventListener("click", function() {
+                alert("Dear costomer thank you for booking for our service, We are kindly informing you that our team member will contact you after 4hours to deliver for your clothes!");
+            });
+        });
+
+        function showAlert() {
+            document.getElementById('customAlert').style.display = 'block';
+        }
+
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
